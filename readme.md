@@ -1,3 +1,15 @@
+## Installation
+ - php: < 7.4
+ - database: mysql
+- run - composer install
+- run migration - php artisan migrate
+## Endpoints
+- POST - /login --- payloads: {username: "", password: ""}, response: {token: "bearer token", expired_in: 3600}
+- POST - /users --- payloads: {username: "required", password: "required", email: "required", phone: "required"}, response: id, Need auth token 
+- PUT - /users/{userId} --- payloads: {username: "", password: "", email: "", phone: ""}, response: id
+- GET - /users, Need auth token 
+
+
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
 <p align="center">
