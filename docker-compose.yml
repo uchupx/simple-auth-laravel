@@ -16,6 +16,8 @@ services:
       SERVICE_NAME: app
       SERVICE_TAGS: dev
     working_dir: /var/www/html
+    env_file:
+      - .env
     volumes:
       - ./:/var/www/html
     networks:
@@ -42,7 +44,7 @@ services:
     restart: unless-stopped
     tty: true
     ports:
-      - "3306:3306"
+      - "3309:3306"
     environment:
       MYSQL_DATABASE: laraveldb
       MYSQL_USER: laravel
