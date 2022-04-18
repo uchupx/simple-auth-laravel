@@ -1,9 +1,10 @@
-## Installation
+## App run on port 5000
+## Installation Linux / Mac OS
  - install docker compose
+ - run: cp .env.example .env
  - run: docker-compose build
  - run: docker-compose up -d
  - run: docker-compose exec app composer install
- - run: docker-compose exec app cp .env.example .env
  - run: docker-compose exec app php artisan key:generate
  - run: docker-compose exec app echo DB_CONNECTION=mysql >> .env && echo DB_HOST=db >> .env && echo DB_PORT=3306 >> .env && echo DB_DATABASE=laraveldb >> .env && echo DB_USERNAME=laravel >> .env && echo DB_PASSWORD=laravelpassword >> .env
  - run: docker-compose exec app php artisan migrate
