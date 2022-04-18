@@ -1,11 +1,11 @@
 # Set master image
 FROM php:7.2-fpm-alpine
 
-# Copy composer.lock and composer.json
-COPY composer.lock composer.json /var/www/html/
-
 # Set working directory
 WORKDIR /var/www/html
+
+# Copy composer.lock and composer.json
+COPY composer.json /var/www/html/
 
 # Install Additional dependencies
 RUN apk update && apk add --no-cache \
@@ -34,7 +34,7 @@ RUN docker-php-ext-enable pdo_mysql
 
 # Install PHP Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-RUN composer install
+# RUN composer install
 
 # Remove Cache
 RUN rm -rf /var/cache/apk/*

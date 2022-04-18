@@ -1,8 +1,12 @@
 ## Installation
- - php: < 7.4
- - database: mysql
-- run - composer install
-- run migration - php artisan migrate
+ - install docker compose
+ - run: docker-compose build
+ - run: docker-compose up -d
+ - run: docker-compose exec app composer install
+ - run: docker-compose exec app php artisan key:generate
+ - run: docker-compose exec app echo "DB_CONNECTION=mysql/nDB_HOST=127.0.0.1/nDB_PORT=3306/nDB_DATABASE=laraveldb/nDB_USERNAME=laravel/nDB_PASSWORD=laravelpassword/n" >> .env
+ - run: docker-compose exec app php artisan migrate
+
 ## Endpoints
 - POST - /login --- payloads: {username: "", password: ""}, response: {token: "bearer token", expired_in: 3600}
 - POST - /users --- payloads: {username: "required", password: "required", email: "required", phone: "required"}, response: id, Need auth token 
